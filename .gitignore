@@ -1,0 +1,18 @@
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+DerivedData/
+build/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+.swiftpm/
+Package.resolved
+# macOS / OneDrive
+.DS_Store
+._*
+Icon?
+*.icloud
