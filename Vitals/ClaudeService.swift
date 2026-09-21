@@ -5,7 +5,7 @@ import Security
 // MARK: - Keychain
 
 enum Keychain {
-    private static let service = "com.piumal.vitals"
+    private static let service = "com.thefinley.vitals"
     static func read(_ account: String) -> String? {
         let q: [String: Any] = [kSecClass as String: kSecClassGenericPassword, kSecAttrService as String: service,
                                 kSecAttrAccount as String: account, kSecReturnData as String: true, kSecMatchLimit as String: kSecMatchLimitOne]
@@ -133,7 +133,7 @@ final class ClaudeService {
         if let image {
             guard let jpeg = Self.downsized(image).jpegData(compressionQuality: 0.82) else { throw ClaudeError.badResponse }
             content.append(["type": "image", "source": ["type": "base64", "media_type": "image/jpeg", "data": jpeg.base64EncodedString()]])
-            prompt = "You are a careful nutrition estimator. The attached photo is a \(slot.label.lowercased()) the viewer is about to eat (or just ate) in Lisbon, Portugal; they also eat Sri Lankan food often. Identify each food and drink visible, estimate the portion from plate/cup size and cutlery for scale, and estimate its nutrition.\n\(hint.isEmpty ? "" : "The viewer added: \"\(hint)\".\n")\(Self.rules)"
+            prompt = "You are a careful nutrition estimator. The attached photo is a \(slot.label.lowercased()) the viewer is about to eat (or just ate). Identify each food and drink visible, estimate the portion from plate/cup size and cutlery for scale, and estimate its nutrition.\n\(hint.isEmpty ? "" : "The viewer added: \"\(hint)\".\n")\(Self.rules)"
         } else {
             prompt = "You are a careful nutrition estimator. The viewer describes a \(slot.label.lowercased()): \"\(text ?? "")\". Interpret quantities as written; when an amount is missing assume a typical single serving. Estimate nutrition for each food and drink.\n\(Self.rules)"
         }
@@ -143,7 +143,7 @@ final class ClaudeService {
     }
 
     func coach(context: String) async throws -> [CoachSuggestion] {
-        let prompt = "You are a pragmatic, evidence-based nutrition coach. Using the JSON below (a person's profile, daily targets, what they have eaten today and their last 7 logged days), give specific advice for the REST OF TODAY and the coming days. Name concrete foods and portions available in Lisbon supermarkets and typical Portuguese or Sri Lankan dishes. Return 5–7 suggestions; each title at most 6 words, each body at most 32 words.\n\n\(context)"
+        let prompt = "You are a pragmatic, evidence-based nutrition coach. Using the JSON below (a person's profile, daily targets, what they have eaten today and their last 7 logged days), give specific advice for the REST OF TODAY and the coming days. Name concrete foods and portions. Return 5–7 suggestions; each title at most 6 words, each body at most 32 words.\n\n\(context)"
         let data = try await send(content: [["type": "text", "text": prompt]], schema: Self.coachSchema, effort: "medium", maxTokens: 3000)
         struct Wrap: Decodable { var suggestions: [CoachSuggestion] }
         return try JSONDecoder().decode(Wrap.self, from: data).suggestions

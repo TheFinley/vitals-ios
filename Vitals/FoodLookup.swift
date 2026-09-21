@@ -158,7 +158,7 @@ enum FoodLookup {
         #if canImport(FoundationModels)
         if #available(iOS 26.0, *) {
             guard case .available = SystemLanguageModel.default.availability else { return nil }
-            let session = LanguageModelSession(instructions: "You are a pragmatic, evidence-based nutrition coach. Given a person's profile, daily targets and recent food log as JSON, give 5 specific, practical suggestions for the rest of today. Name concrete foods and portions available in Lisbon supermarkets and typical Portuguese or Sri Lankan dishes. Each suggestion has a kind (eat, avoid or tip), a title of at most 6 words and a body of at most 30 words.")
+            let session = LanguageModelSession(instructions: "You are a pragmatic, evidence-based nutrition coach. Given a person's profile, daily targets and recent food log as JSON, give 5 specific, practical suggestions for the rest of today. Name concrete foods and portions. Each suggestion has a kind (eat, avoid or tip), a title of at most 6 words and a body of at most 30 words.")
             do {
                 let r = try await session.respond(to: context, generating: [ParsedSuggestion].self)
                 return r.content.map { s in

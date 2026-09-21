@@ -172,15 +172,15 @@ enum EnergyBasis: String, Codable, CaseIterable, Identifiable {
 }
 
 struct Profile: Codable, Equatable {
-    var weightKg: Double = 88
-    var heightCm: Double = 192
-    var dob: Date = Calendar.current.date(from: DateComponents(year: 1997, month: 1, day: 27)) ?? .now
+    var weightKg: Double = 80
+    var heightCm: Double = 175
+    var dob: Date = Calendar.current.date(from: DateComponents(year: 1990, month: 1, day: 1)) ?? .now
     var sex: Sex = .male
     var basis: EnergyBasis = .watch
     var activity: Double = 1.55
     var goal: Goal = .lose
     var rateKgPerWeek: Double = 0.5
-    var targetWeightKg: Double = 82
+    var targetWeightKg: Double = 75
     var proteinPerKg: Double = 1.8
     var hasSeededFromHealth = false
 
