@@ -190,7 +190,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vitals/Vitals.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3S53AS9YD3;
+				DEVELOPMENT_TEAM = HMNGJ6K6UF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Vitals uses the camera to photograph meals so their nutrients can be estimated and logged.";
@@ -206,7 +206,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.piumal.vitals;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thefinley.vitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -223,7 +223,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vitals/Vitals.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3S53AS9YD3;
+				DEVELOPMENT_TEAM = HMNGJ6K6UF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Vitals uses the camera to photograph meals so their nutrients can be estimated and logged.";
@@ -239,7 +239,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.piumal.vitals;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thefinley.vitals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
