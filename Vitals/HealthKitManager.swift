@@ -31,7 +31,7 @@ final class HealthKitManager {
     var lastRefresh: Date?
 
     private var readTypes: Set<HKObjectType> {
-        let quantities: [HKQuantityTypeIdentifier] = [.stepCount, .activeEnergyBurned, .basalEnergyBurned, .appleExerciseTime, .restingHeartRate, .heartRate, .bodyMass, .height]
+        let quantities: [HKQuantityTypeIdentifier] = [.stepCount, .activeEnergyBurned, .basalEnergyBurned, .appleExerciseTime, .restingHeartRate, .bodyMass, .height]
         var s = Set<HKObjectType>(quantities.map { HKQuantityType($0) as HKObjectType })
         s.insert(HKCategoryType(.sleepAnalysis) as HKObjectType)
         s.insert(HKCharacteristicType(.dateOfBirth) as HKObjectType)
